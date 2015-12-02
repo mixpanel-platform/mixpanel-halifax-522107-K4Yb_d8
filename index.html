@@ -29,7 +29,7 @@ function main() {
 </script>
 <script>
   function runQuery() {
-      MP.api.segment('SessionStart', {from: moment().subtract(1, 'days'), unit: 'day', type:'unique'}).done(function    (results) {
+      MP.api.segment('SessionStart', {from: moment().subtract(60, 'days'), unit: 'day', type:'unique'}).done(function    (results) {
         
           console.log(results.values());
       
