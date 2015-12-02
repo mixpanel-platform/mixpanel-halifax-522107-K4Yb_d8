@@ -49,7 +49,7 @@ function main() {
           _.each(cqResult, function(revenueObject){
                 var value = revenueObject['value']
                 var date = revenueObject['key'][0];
-                data['date'] = revenueObject['value']/finalResult['SessionStart'][date]
+                data['date'] = revenueObject['value']/finalResults['SessionStart'][date]
                 console.log(data)
                 debugger;
           })
