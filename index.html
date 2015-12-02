@@ -32,7 +32,7 @@ function main() {
       MP.api.segment('SessionStart', {from: moment().subtract(60, 'days'), unit: 'day', type:'unique'}).done(function    (results) {
         
           console.log(results.values());
-      
+      var dates = _.keys(results.values()['SessionStart'])
       
       var script = $('#cq').html();
       // trim all extra whitespace using jQuery trim
@@ -44,6 +44,12 @@ function main() {
           console.log(cqResult)
           
           /* Graph this data */
+          var data = {}
+          _.each(cqResult, function(revnueObject){
+                var date = revenueObject[key][0];
+                console.log(date);
+                debugger;
+          })
       });
     });
       
