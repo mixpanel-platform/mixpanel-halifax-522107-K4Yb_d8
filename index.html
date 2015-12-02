@@ -29,7 +29,11 @@ function main() {
 </script>
 <script>
   function runQuery() {
-      console.log('here')
+      MP.api.segment('SessionStart', {from: moment().subtract(1, 'days'), unit: 'day', type:'unique'}).done(function    (results) {
+        
+          console.log(results.values());
+      
+      
       var script = $('#cq').html();
       // trim all extra whitespace using jQuery trim
       script = $.trim(script);
@@ -38,7 +42,10 @@ function main() {
       MP.api.custom_query(script).done(function(results) {
           cqResult = results;
           console.log(cqResult)
+          
+          /* Graph this data */
       });
+    });
       
         
   }
