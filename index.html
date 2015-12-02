@@ -49,10 +49,12 @@ function main() {
           _.each(cqResult, function(revenueObject){
                 var value = revenueObject['value']
                 var date = revenueObject['key'][0];
-                data['date'] = revenueObject['value']/finalResults['SessionStart'][date]
+                data[date] = revenueObject['value']/finalResults['SessionStart'][date]
                 console.log(data)
-                debugger;
+               
           })
+          var lineChart = $('<div></div>').appendTo('body').MPChart({chartType: 'line'});                                
+          lineChart.MPChart('setData', data); // Set the chart's data
       });
     });
       
